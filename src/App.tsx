@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import MovieCards from "./MovieCards";
+import { uid } from "uid";
 
+type Movies = {
+  id: number;
+  title: String;
+  img: String;
+};
 function App() {
+  let individualMovies: Movies = {
+    id: 0,
+    title: "Spider Man",
+    img: "https://asset-a.grid.id/crop/0x0:0x0/x/photo/2021/11/16/fep_b6mvgaanu5mjpg-20211116024702.jpg",
+  };
+  const [movies, setMovies] = useState<Movies[]>(
+    Array(100).fill(individualMovies)
+  );
+  function generateMovies() {
+    let newMovies = [...movies];
+    let n: number = 0;
+    for (let i = 0; i < 50; i++) {
+      newMovies[i].id = n;
+      console.log(n);
+      console.log(newMovies);
+      n++;
+    }
+  }
+  useEffect(() => {
+    generateMovies();
+    console.log(movies);
+  }, []);
+
   return (
     <div>
       <div className="flex max-w-full flex-row flex-wrap border-solid border-2 border-green-600 justify-center justify-evenly">
