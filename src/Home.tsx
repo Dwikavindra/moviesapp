@@ -9,11 +9,6 @@ interface HomeProps {
 }
 
 function Home(props: HomeProps) {
-  let individualMovies: Movies = {
-    id: 0,
-    title: "Spider Man",
-    img: "https://wallpaperboat.com/wp-content/uploads/2021/12/19/79926/spider-man-no-way-home-12.jpg",
-  };
   const [movies, setMovies] = useState<MoviesResults>();
   useEffect(() => {
     async function fetchData() {
@@ -24,7 +19,7 @@ function Home(props: HomeProps) {
     }
     fetchData();
     console.log(movies);
-  }, [movies]);
+  }, [movies, props.selectedCategory]);
   return (
     <div className="px-5 my-10 sm:grid md:grid-cols-2 xl:grid-cols-3 h-[100%] ">
       {movies?.results?.map((value, index) => {
