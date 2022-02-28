@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
   body {
     @apply bg-[#06202A] text-gray-300;
@@ -35,6 +36,16 @@
 .image_overlay:hover {
   opacity: 1;
   transition: transform 2s;
+}
+.no-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.no-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.no-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
 }
 
 .image_overlay > * {

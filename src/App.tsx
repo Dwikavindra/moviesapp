@@ -8,15 +8,23 @@ import Home from "./Home";
 import Details from "./Details";
 import Header from "./Header";
 import Nav from "./Nav";
+import requests from "./requests";
 function App() {
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    requests.fetchActionMovies
+  );
+
   return (
     <div>
       <BrowserRouter>
         <Header></Header>
-        <Nav></Nav>
+        <Nav setSelectedCategory={setSelectedCategory}></Nav>
 
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route
+            path="/"
+            element={<Home selectedCategory={selectedCategory} />}
+          ></Route>
           <Route path="/details/:id/*" element={<Details />} />
         </Routes>
       </BrowserRouter>

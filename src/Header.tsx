@@ -1,5 +1,6 @@
 import { HomeIcon, HeartIcon } from "@heroicons/react/outline";
 import HeaderItem from "./HeaderItem";
+
 function Header() {
   return (
     <header className="flex flex-col sm:flex-row m-5 sm:justify-between items-center">
