@@ -12,5 +12,5 @@ export default {
   fetchAnimation: `${baseUrl}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=16`,
   fetchAdventure: `${baseUrl}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=12`,
   fetchCrime: `${baseUrl}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=80`,
-  fetchDocumentary: `${baseUrl}}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=99`,
+  fetchDocumentary: `${baseUrl}/discover/movie?api_key=${API_KEY}&with_genres=99`,
 };

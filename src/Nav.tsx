@@ -3,10 +3,11 @@ import requests from "./requests";
 
 interface NavProps {
   setSelectedCategory: Function;
+  navBarStatus: string;
 }
 function Nav(props: NavProps) {
   return (
-    <nav className=" relative ">
+    <nav className={`${props.navBarStatus} relative`}>
       <div className="flex px-10 sm:px-20 text-2xl whitespace-nowrap space-x-10 sm:space-x-20 overflow-x-scroll scrollbar-hide">
         <Link to="/">
           <h2
