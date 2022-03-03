@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 type MovieCardsProps = {
-  id: number;
-  img: string;
-  title: string;
-  description: string;
+  id?: number;
+  img?: string;
+  title?: string;
+  description?: string;
 };
 const imageUrl: string = "//image.tmdb.org/t/p/original//";
 function MovieCards(props: MovieCardsProps) {
