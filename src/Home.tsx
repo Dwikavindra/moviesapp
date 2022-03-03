@@ -14,17 +14,13 @@ function Home(props: HomeProps) {
     async function fetchData() {
       const request = await axios.get(props.selectedCategory);
       setMovies(request.data);
-      console.log(request.data);
       return request;
     }
     fetchData();
-    console.log(movies);
-  }, [movies, props.selectedCategory]);
+  }, [props.selectedCategory]);
   return (
     <div className="px-5 my-10 sm:grid md:grid-cols-2 xl:grid-cols-3 h-[100%] ">
       {movies?.results?.map((value, index) => {
-        console.log("Hello World");
-        console.log(movies.results);
         return (
           <MovieCards
             key={index}

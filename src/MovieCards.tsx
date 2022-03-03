@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 type MovieCardsProps = {
-  id: number;
-  img: string;
-  title: string;
-  description: string;
+  id?: number;
+  img?: string;
+  title?: string;
+  description?: string;
 };
 const imageUrl: string = "//image.tmdb.org/t/p/original//";
 function MovieCards(props: MovieCardsProps) {
   return (
     <Link to={`/details/${props.id}`}>
-      <div className="responsivecard mt-5">
+      <div className="mt-5">
         <div className=" justify-center items-center card__body flex flex-col flex-wrap">
           <div className="relative">
             <img

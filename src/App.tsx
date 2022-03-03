@@ -9,25 +9,37 @@ import Details from "./Details";
 import Header from "./Header";
 import Nav from "./Nav";
 import requests from "./requests";
+import { Favorites } from "./Favorites";
+import { GlobalProvider } from "./context/GlobalState";
 function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>(
     requests.fetchActionMovies
   );
+  const [navBarStatus, setNavBarStatus] = useState<string>("");
 
   return (
     <div>
-      <BrowserRouter>
-        <Header></Header>
-        <Nav setSelectedCategory={setSelectedCategory}></Nav>
+      <GlobalProvider>
+        <BrowserRouter>
+          <Header></Header>
+          <Nav
+            setSelectedCategory={setSelectedCategory}
+            navBarStatus={navBarStatus}
+          ></Nav>
 
-        <Routes>
-          <Route
-            path="/"
-            element={<Home selectedCategory={selectedCategory} />}
-          ></Route>
-          <Route path="/details/:id/*" element={<Details />} />
-        </Routes>
-      </BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={<Home selectedCategory={selectedCategory} />}
+            ></Route>
+            <Route
+              path="/favorites"
+              element={<Favorites NavBarStatus={setNavBarStatus}></Favorites>}
+            ></Route>
+            <Route path="/details/:id/*" element={<Details />} />
+          </Routes>
+        </BrowserRouter>
+      </GlobalProvider>
     </div>
   );
 }
