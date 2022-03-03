@@ -19,17 +19,24 @@ function Details() {
   const { removeMovies } = useContext(GlobalContext) as FavoriteMoviesStates;
 
   const checkFavorite = () => {
-    favorite.find((item) => {
+    let isFavorite = favorite.find((item) => {
       if (item.id == movieDetails?.id) {
-        setHiddenRemoveFavorite("");
-        setHiddenFavorite("hidden");
+        return item;
       } else {
-        console.log("statement got here");
-        setHiddenFavorite("");
-        setHiddenRemoveFavorite("hidden");
+        return null;
       }
     });
+    console.log(isFavorite);
+    if (isFavorite != null) {
+      setHiddenFavorite("hidden");
+      setHiddenRemoveFavorite("");
+    } else {
+      setHiddenFavorite("");
+      setHiddenRemoveFavorite("hidden");
+    }
+
     if (favorite.length == 0 && hiddenRemoveFavorite == "") {
+      console.log("statement also got here");
       setHiddenFavorite("");
       setHiddenRemoveFavorite("hidden");
     }
@@ -46,10 +53,10 @@ function Details() {
     fetchData();
   }, [id]);
 
-  useEffect(() => {
-    console.log(favorite);
-    checkFavorite();
-  }, [favorite]);
+  // useEffect(() => {
+  //   console.log(favorite);
+  //   checkFavorite();
+  // }, [favorite]);
   useEffect(() => {
     checkFavorite();
   });

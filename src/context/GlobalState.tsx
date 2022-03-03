@@ -27,7 +27,7 @@ export const GlobalProvider: React.FC<React.ReactNode> = ({ children }) => {
   const AddMovieToFavorites = (movie: FavoriteMoviesType) => {
     setMovies([...movies, movie]);
   };
-  useEffect(() => {}, [movies]);
+
   const removeMovies = (id: number) => {
     const newmovies: FavoriteMoviesType[] = movies.filter(
       (val) => val.id != id
