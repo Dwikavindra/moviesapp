@@ -14,6 +14,7 @@ function MovieCards(props: MovieCardsProps) {
         <div className=" justify-center items-center card__body flex flex-col flex-wrap">
           <div className="relative">
             <img
+              alt="movieimg"
               className="responsiveimg"
               src={`${imageUrl}${props.img}`}
             ></img>
